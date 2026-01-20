@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Mini Note</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --coral: #FF6B6B;
+            --coral-light: #FF8E8E;
+            --coral-dark: #E55555;
+            --gold: #FFD93D;
+            --gold-light: #FFE566;
+            --cream: #FFF9F0;
+            --paper: #FFFCF7;
+            --ink: #2D3436;
+            --ink-light: #636E72;
+            --shadow: rgba(45, 52, 54, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--cream);
+            color: var(--ink);
+            line-height: 1.6;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(255, 249, 240, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--ink);
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .logo-text {
+            font-weight: 800;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--coral), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--ink);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--coral);
+        }
+
+        .page-header {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            background: linear-gradient(180deg, var(--cream), white);
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .page-header h1 span {
+            background: linear-gradient(135deg, var(--coral), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-header p {
+            color: var(--ink-light);
+            font-size: 1.125rem;
+        }
+
+        .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .policy-card {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+
+        .policy-card h2 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin: 2rem 0 1rem;
+            color: var(--coral);
+        }
+
+        .policy-card h2:first-child {
+            margin-top: 0;
+        }
+
+        .policy-card p {
+            color: var(--ink-light);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .policy-card ul {
+            margin: 1rem 0 1.5rem 1.5rem;
+            color: var(--ink-light);
+        }
+
+        .policy-card li {
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(168, 230, 207, 0.3), rgba(86, 171, 145, 0.2));
+            border-left: 4px solid #56ab91;
+            padding: 1.5rem;
+            border-radius: 0 16px 16px 0;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        .last-updated {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--shadow);
+            color: var(--ink-light);
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background: var(--ink);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: rgba(255,255,255,0.6);
+        }
+
+        footer a {
+            color: var(--coral-light);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .policy-card {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Mini Note">
+                <span class="logo-text">Mini Note</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="documentation.html">Documentation</a></li>
+                <li><a href="release-notes.html">Release Notes</a></li>
+                <li><a href="privacy-policy.html" class="active">Privacy Policy</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <h1>🔒 <span>Privacy Policy</span></h1>
+        <p>Your privacy is important to us. Here's how we protect it.</p>
+    </section>
+
+    <div class="content-container">
+        <div class="policy-card">
+            <div class="highlight-box">
+                <p>🛡️ TL;DR: Mini Note does not collect, store, or share any of your personal data. Your notes stay on your device.</p>
+            </div>
+
+            <h2>Overview</h2>
+            <p>Mini Note is designed with privacy as a core principle. We believe your notes are personal and should remain that way. This privacy policy explains how Mini Note handles your data (spoiler: we don't collect any).</p>
+
+            <h2>Data Collection</h2>
+            <p><strong>We do not collect any data.</strong> Mini Note operates entirely on your device. Here's what that means:</p>
+            <ul>
+                <li>Your notes are stored locally in your browser's storage</li>
+                <li>No data is sent to external servers</li>
+                <li>No analytics or tracking scripts are used</li>
+                <li>No personal information is collected</li>
+                <li>No usage data is gathered</li>
+            </ul>
+
+            <h2>Data Storage</h2>
+            <p>All your notes and settings are stored using Chrome's local storage API. This means:</p>
+            <ul>
+                <li>Data is stored on your device only</li>
+                <li>You have full control over your data</li>
+                <li>Clearing browser data will remove your notes</li>
+                <li>We recommend regular backups using the export feature</li>
+            </ul>
+
+            <h2>Chrome Sync</h2>
+            <p>If you enable Chrome Sync, your notes may sync across your devices through your Google account. This is handled entirely by Chrome and Google—Mini Note does not have access to or control over this process. Please refer to Google's privacy policy for information about Chrome Sync.</p>
+
+            <h2>Permissions</h2>
+            <p>Mini Note requests only the minimum permissions necessary to function:</p>
+            <ul>
+                <li><strong>Storage:</strong> To save your notes locally on your device</li>
+                <li><strong>Tabs (optional):</strong> To enable the keyboard shortcut feature</li>
+            </ul>
+            <p>We do not request access to your browsing history, personal data, or any other sensitive information.</p>
+
+            <h2>Third Parties</h2>
+            <p>Mini Note does not:</p>
+            <ul>
+                <li>Share data with third parties</li>
+                <li>Use third-party analytics services</li>
+                <li>Display advertisements</li>
+                <li>Integrate with social media platforms</li>
+                <li>Use cookies for tracking</li>
+            </ul>
+
+            <h2>Data Security</h2>
+            <p>Since all data stays on your device, the security of your notes depends on your device's security. We recommend:</p>
+            <ul>
+                <li>Keeping your browser and operating system updated</li>
+                <li>Using a strong device password</li>
+                <li>Regularly backing up important notes using the export feature</li>
+            </ul>
+
+            <h2>Children's Privacy</h2>
+            <p>Mini Note does not knowingly collect any information from anyone, including children under 13. Since we don't collect data, there is no risk of children's data being stored or misused.</p>
+
+            <h2>Changes to This Policy</h2>
+            <p>If we ever change this privacy policy, we will update this page and notify users through the extension's release notes. However, our commitment to not collecting user data will remain unchanged.</p>
+
+            <h2>Open Source</h2>
+            <p>Mini Note's code is available for review. You can inspect exactly what the extension does and verify that no data is being collected or transmitted.</p>
+
+            <h2>Contact</h2>
+            <p>If you have any questions about this privacy policy or Mini Note's practices, please contact us at:</p>
+            <p><strong>Email:</strong> privacy@mininote.app</p>
+
+            <div class="last-updated">
+                <p>Last updated: January 15, 2025</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Mini Note. Made with ❤️ for note-takers everywhere.</p>
+        <p style="margin-top: 0.5rem;"><a href="index.html">Home</a> · <a href="documentation.html">Documentation</a> · <a href="release-notes.html">Release Notes</a></p>
+    </footer>
+</body>
+</html>
