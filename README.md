@@ -144,7 +144,7 @@ Change to:
 In `privacy-policy.html`, find and update:
 
 ```html
-<p><strong>Email:</strong> privacy@mininote.app</p>
+<p><strong>Email:</strong> teamteja3@icloud.com</p>
 ```
 
 ---
