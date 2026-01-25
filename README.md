@@ -8,6 +8,7 @@ A beautiful landing page for the Mini Note Chrome Extension.
 - `documentation.html` - User documentation
 - `release-notes.html` - Version history
 - `privacy-policy.html` - Privacy policy
+- `terms-of-service.html` - Terms of Service
 - `logo.png` - Extension icon
 
 ---

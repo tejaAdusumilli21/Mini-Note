@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Mini Note</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --coral: #FF6B6B;
+            --coral-light: #FF8E8E;
+            --coral-dark: #E55555;
+            --gold: #FFD93D;
+            --gold-light: #FFE566;
+            --cream: #FFF9F0;
+            --paper: #FFFCF7;
+            --ink: #2D3436;
+            --ink-light: #636E72;
+            --shadow: rgba(45, 52, 54, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--cream);
+            color: var(--ink);
+            line-height: 1.6;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(255, 249, 240, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--ink);
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .logo-text {
+            font-weight: 800;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--coral), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--ink);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--coral);
+        }
+
+        .page-header {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            background: linear-gradient(180deg, var(--cream), white);
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .page-header h1 span {
+            background: linear-gradient(135deg, var(--coral), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-header p {
+            color: var(--ink-light);
+            font-size: 1.125rem;
+        }
+
+        .content-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .terms-card {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+
+        .terms-card h2 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin: 2.5rem 0 1rem;
+            color: var(--coral);
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .terms-card h2:first-child {
+            margin-top: 0;
+        }
+
+        .terms-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--ink);
+        }
+
+        .terms-card p {
+            color: var(--ink-light);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .terms-card ul, .terms-card ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+            color: var(--ink-light);
+        }
+
+        .terms-card li {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(255, 217, 61, 0.1));
+            border-left: 4px solid var(--coral);
+            padding: 1.5rem;
+            border-radius: 0 16px 16px 0;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.15), rgba(229, 85, 85, 0.1));
+            border: 2px solid var(--coral);
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin: 1.5rem 0;
+        }
+
+        .warning-box h4 {
+            color: var(--coral-dark);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .warning-box p {
+            margin: 0;
+            color: var(--ink);
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, rgba(168, 230, 207, 0.3), rgba(86, 171, 145, 0.2));
+            border-left: 4px solid #56ab91;
+            padding: 1.5rem;
+            border-radius: 0 16px 16px 0;
+            margin: 1.5rem 0;
+        }
+
+        .info-box p {
+            margin: 0;
+            color: var(--ink);
+        }
+
+        .permissions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .permission-card {
+            background: var(--paper);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .permission-card:hover {
+            border-color: var(--coral-light);
+            transform: translateY(-2px);
+        }
+
+        .permission-card.allowed {
+            border-left: 4px solid #56ab91;
+        }
+
+        .permission-card.prohibited {
+            border-left: 4px solid var(--coral);
+        }
+
+        .permission-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .permission-card.allowed h4 {
+            color: #56ab91;
+        }
+
+        .permission-card.prohibited h4 {
+            color: var(--coral);
+        }
+
+        .permission-card p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .toc {
+            background: var(--paper);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .toc h3 {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--coral);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .toc ol {
+            margin: 0;
+            padding-left: 1.25rem;
+        }
+
+        .toc li {
+            margin-bottom: 0.5rem;
+        }
+
+        .toc a {
+            color: var(--ink);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .toc a:hover {
+            color: var(--coral);
+        }
+
+        .last-updated {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--shadow);
+            color: var(--ink-light);
+            font-size: 0.9rem;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, var(--coral), var(--coral-dark));
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 2rem;
+            color: white;
+            text-align: center;
+        }
+
+        .contact-section h3 {
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-section p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 1rem;
+        }
+
+        .contact-section a {
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        footer {
+            background: var(--ink);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: rgba(255,255,255,0.6);
+        }
+
+        footer a {
+            color: var(--coral-light);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .terms-card {
+                padding: 2rem;
+            }
+
+            .permissions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Mini Note">
+                <span class="logo-text">Mini Note</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="documentation.html">Documentation</a></li>
+                <li><a href="release-notes.html">Release Notes</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <h1>📜 <span>Terms of Service</span></h1>
+        <p>Please read these terms carefully before using Mini Note</p>
+    </section>
+
+    <div class="content-container">
+        <div class="terms-card">
+            <div class="highlight-box">
+                <p>📋 By installing and using Mini Note, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the extension.</p>
+            </div>
+
+            <!-- Table of Contents -->
+            <div class="toc">
+                <h3>📑 Table of Contents</h3>
+                <ol>
+                    <li><a href="#acceptance">Acceptance of Terms</a></li>
+                    <li><a href="#description">Description of Service</a></li>
+                    <li><a href="#eligibility">Eligibility</a></li>
+                    <li><a href="#license">License Grant</a></li>
+                    <li><a href="#permitted">Permitted Uses</a></li>
+                    <li><a href="#prohibited">Prohibited Uses</a></li>
+                    <li><a href="#intellectual">Intellectual Property</a></li>
+                    <li><a href="#privacy">Privacy & Data</a></li>
+                    <li><a href="#disclaimer">Disclaimer of Warranties</a></li>
+                    <li><a href="#limitation">Limitation of Liability</a></li>
+                    <li><a href="#modifications">Modifications to Service</a></li>
+                    <li><a href="#termination">Termination</a></li>
+                    <li><a href="#governing">Governing Law</a></li>
+                    <li><a href="#contact">Contact Information</a></li>
+                </ol>
+            </div>
+
+            <h2 id="acceptance">1. Acceptance of Terms</h2>
+            <p>Welcome to Mini Note. These Terms of Service ("Terms") constitute a legally binding agreement between you ("User," "you," or "your") and Mini Note ("we," "us," or "our") governing your access to and use of the Mini Note Chrome extension and all related services, features, content, and applications (collectively, the "Service").</p>
+            <p>By downloading, installing, accessing, or using Mini Note, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you are using the Service on behalf of an organization, you represent and warrant that you have the authority to bind that organization to these Terms, and "you" and "your" will refer to that organization.</p>
+            <p>We reserve the right to update or modify these Terms at any time without prior notice. Your continued use of the Service after any such changes constitutes your acceptance of the new Terms. We encourage you to review these Terms periodically to stay informed of any updates.</p>
+
+            <h2 id="description">2. Description of Service</h2>
+            <p>Mini Note is a Chrome browser extension designed to provide users with a quick, lightweight, and efficient note-taking solution. The Service allows users to capture thoughts, create notes, organize tasks, and sketch ideas directly within their web browser without the need for external applications or cloud accounts.</p>
+            
+            <h3>Key Features Include:</h3>
+            <ul>
+                <li><strong>Quick Note-Taking:</strong> Instantly capture text notes with a single click or keyboard shortcut</li>
+                <li><strong>Smart Search:</strong> Intelligent search functionality with fuzzy matching and filters</li>
+                <li><strong>Task Management:</strong> Organize tasks using an intuitive drag-and-drop Kanban board</li>
+                <li><strong>Drawing Canvas:</strong> Sketch ideas with pen, highlighter, and eraser tools</li>
+                <li><strong>Local Storage:</strong> All data is stored locally on your device for privacy</li>
+                <li><strong>Export Options:</strong> Export notes in various formats including text, markdown, and PDF</li>
+                <li><strong>Themes:</strong> Customize the appearance with multiple color themes</li>
+                <li><strong>Offline Access:</strong> Full functionality without internet connection</li>
+            </ul>
+            <p>The Service is provided "as is" and is intended for personal productivity purposes. We continuously work to improve and expand the features available to users.</p>
+
+            <h2 id="eligibility">3. Eligibility</h2>
+            <p>To use Mini Note, you must meet the following eligibility requirements:</p>
+            <ul>
+                <li>You must be at least 13 years of age, or the minimum age required in your jurisdiction to consent to use online services</li>
+                <li>If you are under 18 years of age (or the age of majority in your jurisdiction), you must have permission from a parent or legal guardian to use the Service</li>
+                <li>You must have a compatible device with the Google Chrome browser installed</li>
+                <li>You must not be prohibited from using the Service under applicable laws</li>
+            </ul>
+            <p>By using Mini Note, you represent and warrant that you meet all eligibility requirements. If you do not meet these requirements, you must not access or use the Service.</p>
+
+            <h2 id="license">4. License Grant</h2>
+            <p>Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, non-sublicensable, revocable license to download, install, and use Mini Note on devices that you own or control, solely for your personal, non-commercial purposes.</p>
+            
+            <div class="info-box">
+                <p><strong>✓ This license allows you to:</strong> Install and use the extension on multiple personal devices, create and store unlimited notes, export your data in supported formats, and use all features included in the extension.</p>
+            </div>
+
+            <h3>License Restrictions:</h3>
+            <p>This license does not allow you to, and you agree not to:</p>
+            <ul>
+                <li>Copy, modify, or distribute the Service or any part thereof</li>
+                <li>Reverse engineer, decompile, disassemble, or attempt to derive the source code of the Service</li>
+                <li>Rent, lease, lend, sell, sublicense, or transfer the Service to any third party</li>
+                <li>Remove, alter, or obscure any proprietary notices on the Service</li>
+                <li>Use the Service for any commercial purpose without prior written consent</li>
+                <li>Use the Service to develop a competing product or service</li>
+            </ul>
+
+            <h2 id="permitted">5. Permitted Uses</h2>
+            <p>Mini Note is designed for legitimate personal and professional productivity purposes. The following uses are expressly permitted:</p>
+            
+            <div class="permissions-grid">
+                <div class="permission-card allowed">
+                    <h4>✓ Personal Notes</h4>
+                    <p>Creating and storing personal notes, journals, and ideas</p>
+                </div>
+                <div class="permission-card allowed">
+                    <h4>✓ Work Tasks</h4>
+                    <p>Managing work-related tasks and to-do lists</p>
+                </div>
+                <div class="permission-card allowed">
+                    <h4>✓ Study Notes</h4>
+                    <p>Taking notes for educational purposes</p>
+                </div>
+                <div class="permission-card allowed">
+                    <h4>✓ Creative Sketches</h4>
+                    <p>Using the drawing canvas for diagrams and sketches</p>
+                </div>
+                <div class="permission-card allowed">
+                    <h4>✓ Data Export</h4>
+                    <p>Exporting your notes for backup or sharing</p>
+                </div>
+                <div class="permission-card allowed">
+                    <h4>✓ Offline Use</h4>
+                    <p>Using all features without internet connection</p>
+                </div>
+            </div>
+
+            <h2 id="prohibited">6. Prohibited Uses</h2>
+            <p>You agree not to use Mini Note for any unlawful, harmful, or inappropriate purposes. The following uses are strictly prohibited:</p>
+            
+            <div class="permissions-grid">
+                <div class="permission-card prohibited">
+                    <h4>✗ Illegal Content</h4>
+                    <p>Storing content that violates any applicable laws</p>
+                </div>
+                <div class="permission-card prohibited">
+                    <h4>✗ Malicious Use</h4>
+                    <p>Using the Service to harm others or spread malware</p>
+                </div>
+                <div class="permission-card prohibited">
+                    <h4>✗ Reverse Engineering</h4>
+                    <p>Attempting to access or modify the source code</p>
+                </div>
+                <div class="permission-card prohibited">
+                    <h4>✗ Commercial Resale</h4>
+                    <p>Selling or redistributing the Service</p>
+                </div>
+                <div class="permission-card prohibited">
+                    <h4>✗ Abuse of Service</h4>
+                    <p>Attempting to overload or disrupt the Service</p>
+                </div>
+                <div class="permission-card prohibited">
+                    <h4>✗ Circumvention</h4>
+                    <p>Bypassing any security or access controls</p>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Important Notice</h4>
+                <p>Violation of these prohibited uses may result in immediate termination of your license to use Mini Note and may expose you to civil and/or criminal liability.</p>
+            </div>
+
+            <h2 id="intellectual">7. Intellectual Property Rights</h2>
+            <p>Mini Note and all of its contents, features, and functionality (including but not limited to all information, software, code, text, displays, images, graphics, icons, logos, button icons, audio clips, video clips, data compilations, page layout, underlying code, and software) are owned by Mini Note, its licensors, or other providers of such material and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws.</p>
+            
+            <h3>Trademarks</h3>
+            <p>The Mini Note name, logo, and all related names, logos, product and service names, designs, and slogans are trademarks of Mini Note or its affiliates. You may not use such marks without our prior written permission. All other names, logos, product and service names, designs, and slogans on the Service are the trademarks of their respective owners.</p>
+            
+            <h3>Your Content</h3>
+            <p>You retain full ownership of any content you create using Mini Note, including notes, tasks, and drawings. We do not claim any ownership rights over your content. Since all data is stored locally on your device, you maintain complete control over your information.</p>
+
+            <h2 id="privacy">8. Privacy and Data</h2>
+            <p>Your privacy is extremely important to us. Mini Note is designed with a privacy-first approach:</p>
+            <ul>
+                <li><strong>Local Storage Only:</strong> All your notes, tasks, and drawings are stored exclusively on your local device using Chrome's storage API</li>
+                <li><strong>No Data Collection:</strong> We do not collect, transmit, or store any of your personal data on external servers</li>
+                <li><strong>No Analytics:</strong> We do not use any analytics or tracking tools</li>
+                <li><strong>No Accounts Required:</strong> You can use Mini Note without creating an account or providing any personal information</li>
+                <li><strong>Optional Chrome Sync:</strong> If you enable Chrome Sync, your data may sync across devices through Google's infrastructure, subject to Google's privacy policy</li>
+            </ul>
+            <p>For complete details about our data practices, please review our <a href="privacy-policy.html">Privacy Policy</a>, which is incorporated into these Terms by reference.</p>
+
+            <h2 id="disclaimer">9. Disclaimer of Warranties</h2>
+            <p>THE SERVICE IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITHOUT ANY WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO:</p>
+            <ul>
+                <li>IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT</li>
+                <li>WARRANTIES THAT THE SERVICE WILL BE UNINTERRUPTED, TIMELY, SECURE, OR ERROR-FREE</li>
+                <li>WARRANTIES THAT THE RESULTS OBTAINED FROM USE OF THE SERVICE WILL BE ACCURATE OR RELIABLE</li>
+                <li>WARRANTIES THAT ANY ERRORS IN THE SERVICE WILL BE CORRECTED</li>
+            </ul>
+            <p>You understand and agree that you use the Service at your own risk. We do not warrant that the Service will meet your requirements or that the operation of the Service will be uninterrupted or error-free.</p>
+
+            <h2 id="limitation">10. Limitation of Liability</h2>
+            <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL MINI NOTE, ITS AFFILIATES, DIRECTORS, EMPLOYEES, AGENTS, OR LICENSORS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO:</p>
+            <ul>
+                <li>Loss of profits, data, use, goodwill, or other intangible losses</li>
+                <li>Damages resulting from unauthorized access to or alteration of your data</li>
+                <li>Damages resulting from any interruption or cessation of the Service</li>
+                <li>Damages resulting from bugs, viruses, or other harmful code that may be transmitted through the Service</li>
+                <li>Damages resulting from any content or conduct of any third party</li>
+            </ul>
+            <p>IN NO EVENT SHALL OUR TOTAL LIABILITY TO YOU FOR ALL CLAIMS ARISING OUT OF OR RELATING TO THESE TERMS OR YOUR USE OF THE SERVICE EXCEED THE AMOUNT YOU PAID US, IF ANY, TO USE THE SERVICE DURING THE TWELVE (12) MONTHS PRIOR TO THE CLAIM.</p>
+
+            <h2 id="modifications">11. Modifications to Service</h2>
+            <p>We reserve the right to modify, suspend, or discontinue the Service (or any part or feature thereof) at any time, with or without notice. We may also impose limits on certain features or restrict your access to parts or all of the Service without notice or liability.</p>
+            <p>We may release updates to Mini Note from time to time. These updates may include bug fixes, new features, or changes to existing functionality. By using the Service, you agree to receive these updates automatically through Chrome's extension update mechanism.</p>
+            <p>We shall not be liable to you or any third party for any modification, suspension, or discontinuance of the Service.</p>
+
+            <h2 id="termination">12. Termination</h2>
+            <p>These Terms are effective until terminated by either you or us.</p>
+            
+            <h3>Termination by You</h3>
+            <p>You may terminate these Terms at any time by uninstalling Mini Note from your browser and discontinuing use of the Service. Upon termination, your license to use the Service will immediately cease.</p>
+            
+            <h3>Termination by Us</h3>
+            <p>We may terminate or suspend your access to the Service immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach these Terms.</p>
+            
+            <h3>Effect of Termination</h3>
+            <p>Upon termination, all rights and licenses granted to you will immediately cease. However, the following sections shall survive termination: Intellectual Property Rights, Disclaimer of Warranties, Limitation of Liability, and Governing Law.</p>
+            <p>Since all your data is stored locally on your device, termination of the Service will not automatically delete your data. You may export your data before uninstalling the extension if you wish to preserve it.</p>
+
+            <h2 id="governing">13. Governing Law and Dispute Resolution</h2>
+            <p>These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which Mini Note operates, without regard to its conflict of law provisions.</p>
+            <p>Any dispute arising out of or relating to these Terms or the Service shall first be attempted to be resolved through good-faith negotiations. If such negotiations fail, the dispute shall be resolved through binding arbitration in accordance with the applicable arbitration rules.</p>
+            <p>You agree that any dispute resolution proceedings will be conducted only on an individual basis and not in a class, consolidated, or representative action. You waive any right to participate in class actions or class-wide arbitration.</p>
+
+            <h2 id="contact">14. Contact Information</h2>
+            <p>If you have any questions, concerns, or feedback about these Terms of Service or Mini Note, please contact us:</p>
+            
+            <div class="contact-section">
+                <h3>📧 Get in Touch</h3>
+                <p>We're here to help and welcome your feedback!</p>
+                <p><strong>Email:</strong> <a href="mailto:legal@mininote.app">legal@mininote.app</a></p>
+                <p><strong>Support:</strong> <a href="mailto:support@mininote.app">support@mininote.app</a></p>
+            </div>
+
+            <div class="last-updated">
+                <p><strong>Last Updated:</strong> January 20, 2025</p>
+                <p><strong>Effective Date:</strong> January 20, 2025</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Mini Note. Made with ❤️ for note-takers everywhere.</p>
+        <p style="margin-top: 0.5rem;"><a href="index.html">Home</a> · <a href="documentation.html">Documentation</a> · <a href="privacy-policy.html">Privacy Policy</a></p>
+    </footer>
+</body>
+</html>

@@ -40,7 +40,7 @@
         }
 
         /* Navigation */
-        nav {
+        .top-nav {
             position: fixed;
             top: 0;
             left: 0;
@@ -126,30 +126,32 @@
             margin: 0 auto;
         }
 
-        /* Documentation Content */
-        .docs-container {
+        /* Documentation Layout */
+        .docs-wrapper {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 4rem 2rem;
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: 4rem;
+            padding: 2rem;
+            display: flex;
+            gap: 3rem;
+            align-items: flex-start;
         }
 
+        /* Sidebar */
         .docs-sidebar {
+            width: 280px;
+            flex-shrink: 0;
             position: sticky;
             top: 100px;
-            height: fit-content;
         }
 
-        .docs-nav {
+        .sidebar-nav {
             background: white;
             border-radius: 16px;
             padding: 1.5rem;
             box-shadow: 0 4px 20px var(--shadow);
         }
 
-        .docs-nav h3 {
+        .sidebar-nav h3 {
             font-size: 0.875rem;
             font-weight: 800;
             text-transform: uppercase;
@@ -159,27 +161,39 @@
             border-bottom: 2px solid var(--coral-light);
         }
 
-        .docs-nav ul {
+        .sidebar-nav ul {
             list-style: none;
         }
 
-        .docs-nav li {
-            margin-bottom: 0.5rem;
+        .sidebar-nav li {
+            margin-bottom: 0.25rem;
         }
 
-        .docs-nav a {
+        .sidebar-nav a {
             display: block;
-            padding: 0.5rem 1rem;
+            padding: 0.625rem 1rem;
             text-decoration: none;
             color: var(--ink);
             font-weight: 600;
             border-radius: 8px;
             transition: all 0.3s ease;
+            font-size: 0.95rem;
         }
 
-        .docs-nav a:hover, .docs-nav a.active {
+        .sidebar-nav a:hover {
+            background: var(--paper);
+            color: var(--coral);
+        }
+        
+        .sidebar-nav a.active {
             background: linear-gradient(135deg, var(--coral-light), var(--coral));
             color: white;
+        }
+
+        /* Main Content */
+        .docs-main {
+            flex: 1;
+            min-width: 0;
         }
 
         .docs-content {
@@ -191,6 +205,10 @@
 
         .docs-section {
             margin-bottom: 3rem;
+        }
+
+        .docs-section:last-child {
+            margin-bottom: 0;
         }
 
         .docs-section h2 {
@@ -206,6 +224,13 @@
             font-weight: 700;
             margin: 2rem 0 1rem;
             color: var(--coral);
+        }
+
+        .docs-section h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--ink);
         }
 
         .docs-section p {
@@ -224,6 +249,67 @@
             line-height: 1.7;
         }
 
+        /* Screenshot Styles */
+        .screenshot {
+            margin: 1.5rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px var(--shadow-dark);
+            border: 1px solid #eee;
+        }
+
+        .screenshot img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .screenshot-caption {
+            background: var(--ink);
+            color: white;
+            padding: 0.75rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .screenshot-small {
+            max-width: 600px;
+        }
+
+        /* Step Cards */
+        .step-card {
+            background: var(--paper);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--coral);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--coral), var(--coral-dark));
+            color: white;
+            border-radius: 50%;
+            font-weight: 800;
+            font-size: 0.9rem;
+            margin-right: 0.75rem;
+        }
+
+        .step-card h4 {
+            display: inline;
+            margin: 0;
+            color: var(--ink);
+        }
+
+        .step-card p {
+            margin: 0.75rem 0 0 0;
+            padding-left: 2.5rem;
+        }
+
         .code-block {
             background: var(--ink);
             color: #a8e6cf;
@@ -233,11 +319,12 @@
             font-size: 0.9rem;
             overflow-x: auto;
             margin: 1rem 0;
+            white-space: pre-wrap;
         }
 
         .shortcut-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 1rem;
             margin: 1.5rem 0;
         }
@@ -266,10 +353,12 @@
             font-family: monospace;
             font-weight: 700;
             white-space: nowrap;
+            font-size: 0.85rem;
         }
 
         .shortcut-desc {
             font-weight: 600;
+            font-size: 0.95rem;
         }
 
         .tip-box {
@@ -284,12 +373,48 @@
             color: var(--coral-dark);
         }
 
+        .info-box {
+            background: linear-gradient(135deg, rgba(168, 230, 207, 0.2), rgba(86, 171, 145, 0.15));
+            border-left: 4px solid #56ab91;
+            padding: 1.25rem;
+            border-radius: 0 12px 12px 0;
+            margin: 1.5rem 0;
+        }
+
+        .info-box strong {
+            color: #3d8b6e;
+        }
+
+        /* Feature Tabs Visual */
+        .tabs-visual {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .tab-badge {
+            background: var(--paper);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border: 2px solid #eee;
+        }
+
+        .tab-badge.active {
+            background: linear-gradient(135deg, var(--coral-light), var(--coral));
+            color: white;
+            border-color: var(--coral);
+        }
+
         /* Footer */
         footer {
             background: var(--ink);
             color: white;
             padding: 3rem 2rem;
             text-align: center;
+            margin-top: 2rem;
         }
 
         footer p {
@@ -301,24 +426,39 @@
             text-decoration: none;
         }
 
+        /* Responsive */
         @media (max-width: 900px) {
-            .docs-container {
-                grid-template-columns: 1fr;
+            .docs-wrapper {
+                flex-direction: column;
+                padding: 1rem;
             }
 
             .docs-sidebar {
+                width: 100%;
                 position: relative;
                 top: 0;
+            }
+
+            .docs-content {
+                padding: 2rem;
             }
 
             .nav-links {
                 display: none;
             }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .shortcut-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <nav>
+    <nav class="top-nav">
         <div class="nav-container">
             <a href="index.html" class="logo">
                 <img src="logo.png" alt="Mini Note">
@@ -338,270 +478,405 @@
         <p>Learn how to get the most out of Mini Note with our comprehensive guide</p>
     </section>
 
-    <div class="docs-container">
+    <div class="docs-wrapper">
         <aside class="docs-sidebar">
-            <nav class="docs-nav">
+            <nav class="sidebar-nav">
                 <h3>Contents</h3>
                 <ul>
                     <li><a href="#getting-started" class="active">Getting Started</a></li>
+                    <li><a href="#interface">Interface Overview</a></li>
                     <li><a href="#creating-notes">Creating Notes</a></li>
-                    <li><a href="#smart-search">Smart Search</a></li>
                     <li><a href="#task-management">Task Management</a></li>
-                    <li><a href="#drawing-canvas">Drawing Canvas</a></li>
-                    <li><a href="#organizing">Organizing Notes</a></li>
+                    <li><a href="#insert-content">Insert Content</a></li>
+                    <li><a href="#themes">Themes & View</a></li>
+                    <li><a href="#backup">Backup & Export</a></li>
                     <li><a href="#shortcuts">Keyboard Shortcuts</a></li>
-                    <li><a href="#themes">Themes & Settings</a></li>
-                    <li><a href="#export">Export & Backup</a></li>
                     <li><a href="#troubleshooting">Troubleshooting</a></li>
                 </ul>
             </nav>
         </aside>
 
-        <main class="docs-content">
-            <section id="getting-started" class="docs-section">
-                <h2>Getting Started</h2>
-                <p>Welcome to Mini Note! This guide will help you get up and running in just a few minutes.</p>
-                
-                <h3>Installation</h3>
-                <ol>
-                    <li>Visit the Chrome Web Store</li>
-                    <li>Search for "Mini Note" or click our install link</li>
-                    <li>Click "Add to Chrome"</li>
-                    <li>Confirm the installation when prompted</li>
-                </ol>
-                
-                <h3>First Launch</h3>
-                <p>After installation, you'll see the Mini Note icon in your browser toolbar. Click it to open your first note!</p>
-                
-                <div class="tip-box">
-                    <strong>💡 Pro Tip:</strong> Pin Mini Note to your toolbar for quick access. Right-click the extension icon and select "Pin".
-                </div>
-            </section>
-
-            <section id="creating-notes" class="docs-section">
-                <h2>Creating Notes</h2>
-                <p>Creating notes in Mini Note is quick and intuitive. Here's everything you need to know.</p>
-                
-                <h3>Quick Note</h3>
-                <p>Click the Mini Note icon or use the keyboard shortcut to instantly start typing. Your note is saved automatically as you type.</p>
-                
-                <h3>New Note</h3>
-                <p>To create a new note while keeping your existing ones:</p>
-                <ol>
-                    <li>Click the "+" button in the toolbar</li>
-                    <li>Or use the keyboard shortcut <code>Ctrl/Cmd + N</code></li>
-                </ol>
-                
-                <h3>Formatting</h3>
-                <p>Mini Note supports basic text formatting:</p>
-                <ul>
-                    <li><strong>Bold</strong> - Select text and press Ctrl/Cmd + B</li>
-                    <li><em>Italic</em> - Select text and press Ctrl/Cmd + I</li>
-                    <li>Lists - Start a line with "- " or "1. "</li>
-                </ul>
-            </section>
-
-            <section id="smart-search" class="docs-section">
-                <h2>Smart Search</h2>
-                <p>Find any note instantly with our intelligent search system.</p>
-                
-                <h3>Basic Search</h3>
-                <p>Simply start typing in the search bar to find notes containing your query. Results appear instantly as you type.</p>
-                
-                <h3>Advanced Search Features</h3>
-                <ul>
-                    <li><strong>Fuzzy Matching</strong> - Find notes even with typos or partial words</li>
-                    <li><strong>Tag Search</strong> - Use #tagname to filter by tags</li>
-                    <li><strong>Date Filters</strong> - Search by creation or modification date</li>
-                    <li><strong>Content Type</strong> - Filter by notes, tasks, or drawings</li>
-                </ul>
-                
-                <div class="code-block">
-                    Search examples:
-                    - "meeting" → finds all notes containing "meeting"
-                    - "#work" → finds notes tagged with "work"
-                    - "date:today" → shows notes created today
-                    - "type:task" → shows only task boards
-                </div>
-                
-                <div class="tip-box">
-                    <strong>💡 Pro Tip:</strong> Press Ctrl/Cmd + F from anywhere to instantly open search!
-                </div>
-            </section>
-
-            <section id="task-management" class="docs-section">
-                <h2>Task Management</h2>
-                <p>Organize your tasks visually with our intuitive Kanban board.</p>
-                
-                <h3>Creating a Task Board</h3>
-                <ol>
-                    <li>Click the "+" button and select "New Task Board"</li>
-                    <li>Give your board a name</li>
-                    <li>Start adding tasks to your columns</li>
-                </ol>
-                
-                <h3>Default Columns</h3>
-                <p>Each new board comes with three columns:</p>
-                <ul>
-                    <li><strong>To Do</strong> - Tasks waiting to be started</li>
-                    <li><strong>In Progress</strong> - Tasks you're currently working on</li>
-                    <li><strong>Done</strong> - Completed tasks</li>
-                </ul>
-                
-                <h3>Drag and Drop</h3>
-                <p>Simply drag any task card and drop it into another column to update its status. You can also reorder tasks within a column.</p>
-                
-                <h3>Task Features</h3>
-                <ul>
-                    <li>Add due dates and reminders</li>
-                    <li>Assign priority levels (Low, Medium, High)</li>
-                    <li>Add checklists within tasks</li>
-                    <li>Color-code tasks for quick identification</li>
-                </ul>
-                
-                <div class="tip-box">
-                    <strong>💡 Pro Tip:</strong> Double-click any column header to rename it, or add custom columns for your workflow!
-                </div>
-            </section>
-
-            <section id="drawing-canvas" class="docs-section">
-                <h2>Drawing Canvas</h2>
-                <p>Sketch ideas, create diagrams, or annotate with our powerful drawing tools.</p>
-                
-                <h3>Opening the Canvas</h3>
-                <ol>
-                    <li>Click the "+" button and select "New Drawing"</li>
-                    <li>Or press Ctrl/Cmd + D for quick access</li>
-                </ol>
-                
-                <h3>Drawing Tools</h3>
-                <ul>
-                    <li><strong>Pen</strong> - Freehand drawing with adjustable thickness</li>
-                    <li><strong>Highlighter</strong> - Semi-transparent strokes for emphasis</li>
-                    <li><strong>Eraser</strong> - Remove unwanted strokes</li>
-                    <li><strong>Shapes</strong> - Draw rectangles, circles, and lines</li>
-                    <li><strong>Text</strong> - Add text annotations to your drawings</li>
-                </ul>
-                
-                <h3>Color Palette</h3>
-                <p>Choose from a variety of colors for your pen and highlighter. Custom colors are also supported via the color picker.</p>
-                
-                <h3>Canvas Actions</h3>
-                <ul>
-                    <li><strong>Undo/Redo</strong> - Ctrl/Cmd + Z / Ctrl/Cmd + Shift + Z</li>
-                    <li><strong>Clear Canvas</strong> - Start fresh with one click</li>
-                    <li><strong>Export as Image</strong> - Save your drawing as PNG or JPG</li>
-                    <li><strong>Insert into Note</strong> - Embed drawings in your text notes</li>
-                </ul>
-                
-                <div class="tip-box">
-                    <strong>💡 Pro Tip:</strong> Use two-finger pinch to zoom in/out on the canvas for detailed work!
-                </div>
-            </section>
-
-            <section id="organizing" class="docs-section">
-                <h2>Organizing Notes</h2>
-                <p>Keep your notes tidy with folders and tags.</p>
-                
-                <h3>Folders</h3>
-                <p>Create folders to group related notes together. Click the folder icon in the sidebar to create a new folder.</p>
-                
-                <h3>Search</h3>
-                <p>Use the search bar to quickly find any note. Search works across titles and content.</p>
-                
-                <div class="code-block">
-                    Search tips:
-                    - "meeting" - finds all notes containing "meeting"
-                    - "#work" - finds notes tagged with "work"
-                    - "folder:personal" - searches within a specific folder
-                </div>
-            </section>
-
-            <section id="shortcuts" class="docs-section">
-                <h2>Keyboard Shortcuts</h2>
-                <p>Speed up your workflow with these handy shortcuts.</p>
-                
-                <div class="shortcut-grid">
-                    <div class="shortcut-card">
-                        <span class="shortcut-key">Ctrl/Cmd + Shift + N</span>
-                        <span class="shortcut-desc">Open Mini Note</span>
+        <main class="docs-main">
+            <div class="docs-content">
+                <!-- Getting Started -->
+                <section id="getting-started" class="docs-section">
+                    <h2>Getting Started</h2>
+                    <p>Welcome to Mini Note! This guide will help you get up and running in just a few minutes.</p>
+                    
+                    <h3>Installation</h3>
+                    <div class="step-card">
+                        <span class="step-number">1</span>
+                        <h4>Visit the Chrome Web Store</h4>
+                        <p>Search for "Mini Note" or click our install link on the homepage.</p>
                     </div>
-                    <div class="shortcut-card">
-                        <span class="shortcut-key">Ctrl/Cmd + N</span>
-                        <span class="shortcut-desc">New Note</span>
+                    <div class="step-card">
+                        <span class="step-number">2</span>
+                        <h4>Click "Add to Chrome"</h4>
+                        <p>Click the blue "Add to Chrome" button and confirm the installation.</p>
                     </div>
-                    <div class="shortcut-card">
-                        <span class="shortcut-key">Ctrl/Cmd + S</span>
-                        <span class="shortcut-desc">Save Note</span>
+                    <div class="step-card">
+                        <span class="step-number">3</span>
+                        <h4>Access Mini Note</h4>
+                        <p>After installation, you'll see the Mini Note icon in your browser. You can also pin it to your toolbar for quick access.</p>
                     </div>
-                    <div class="shortcut-card">
-                        <span class="shortcut-key">Ctrl/Cmd + F</span>
-                        <span class="shortcut-desc">Search Notes</span>
-                    </div>
-                    <div class="shortcut-card">
-                        <span class="shortcut-key">Ctrl/Cmd + B</span>
-                        <span class="shortcut-desc">Bold Text</span>
-                    </div>
-                    <div class="shortcut-card">
-                        <span class="shortcut-key">Ctrl/Cmd + I</span>
-                        <span class="shortcut-desc">Italic Text</span>
-                    </div>
-                    <div class="shortcut-card">
-                        <span class="shortcut-key">Ctrl/Cmd + E</span>
-                        <span class="shortcut-desc">Export Note</span>
-                    </div>
-                    <div class="shortcut-card">
-                        <span class="shortcut-key">Escape</span>
-                        <span class="shortcut-desc">Close Mini Note</span>
-                    </div>
-                </div>
-            </section>
 
-            <section id="themes" class="docs-section">
-                <h2>Themes & Settings</h2>
-                <p>Customize Mini Note to match your style.</p>
-                
-                <h3>Available Themes</h3>
-                <ul>
-                    <li><strong>Light</strong> - Clean white background, perfect for daytime use</li>
-                    <li><strong>Dark</strong> - Easy on the eyes for night owls</li>
-                    <li><strong>Sepia</strong> - Warm paper-like tones for comfortable reading</li>
-                    <li><strong>Ocean</strong> - Cool blue tones for a calming experience</li>
-                </ul>
-                
-                <h3>Changing Themes</h3>
-                <p>Click the settings gear icon and select your preferred theme from the dropdown menu.</p>
-            </section>
+                    <div class="screenshot">
+                        <img src="images/browser-shortcut.png" alt="Mini Note icon in browser toolbar">
+                        <div class="screenshot-caption">📍 After installation, you'll see the Mini Note icon in your browser toolbar. Click it to open your first note!</div>
+                    </div>
+                    
+                    <div class="tip-box">
+                        <strong>💡 Pro Tip:</strong> Pin Mini Note to your Chrome toolbar for instant access! Right-click the extension icon and select "Pin".
+                    </div>
+                </section>
 
-            <section id="export" class="docs-section">
-                <h2>Export & Backup</h2>
-                <p>Never lose your important notes with our export features.</p>
-                
-                <h3>Export Options</h3>
-                <ul>
-                    <li><strong>Plain Text (.txt)</strong> - Universal format, works everywhere</li>
-                    <li><strong>Markdown (.md)</strong> - Keep your formatting intact</li>
-                    <li><strong>PDF</strong> - Perfect for sharing and printing</li>
-                    <li><strong>JSON</strong> - Full backup with all metadata</li>
-                </ul>
-                
-                <h3>Auto Backup</h3>
-                <p>Enable Chrome Sync in settings to automatically backup your notes across all your Chrome browsers.</p>
-            </section>
+                <!-- Interface Overview -->
+                <section id="interface" class="docs-section">
+                    <h2>Interface Overview</h2>
+                    <p>Mini Note features a clean, intuitive interface with powerful features organized into tabs.</p>
+                    
+                    <div class="screenshot">
+                        <img src="images/home-tab.png" alt="Mini Note Home Tab Interface">
+                        <div class="screenshot-caption">📝 Mini Note's main interface - Home Tab with rich text editing</div>
+                    </div>
 
-            <section id="troubleshooting" class="docs-section">
-                <h2>Troubleshooting</h2>
-                <p>Having issues? Here are solutions to common problems.</p>
-                
-                <h3>Notes not saving</h3>
-                <p>Try clearing your browser cache and restarting Chrome. If the issue persists, reinstall the extension.</p>
-                
-                <h3>Extension not opening</h3>
-                <p>Make sure Mini Note is enabled in Chrome's extension settings (chrome://extensions).</p>
-                
-                <h3>Need more help?</h3>
-                <p>Contact us at support@mininote.app and we'll be happy to assist!</p>
-            </section>
+                    <h3>Main Navigation Tabs</h3>
+                    <p>Mini Note is organized into five main tabs:</p>
+                    
+                    <div class="tabs-visual">
+                        <span class="tab-badge active">Home</span>
+                        <span class="tab-badge">Insert</span>
+                        <span class="tab-badge">Draw</span>
+                        <span class="tab-badge">View</span>
+                        <span class="tab-badge">Backup</span>
+                    </div>
+
+                    <ul>
+                        <li><strong>Home</strong> - Rich text editing with font styling, colors, lists, and formatting tools</li>
+                        <li><strong>Insert</strong> - Add tables, pictures, links, symbols, and emojis</li>
+                        <li><strong>Draw</strong> - Sketch and annotate with drawing tools</li>
+                        <li><strong>View</strong> - Toggle sidebar and switch between Light, Dark, and System themes</li>
+                        <li><strong>Backup</strong> - Export and import your notes for safekeeping</li>
+                    </ul>
+
+                    <h3>Sidebar Panel</h3>
+                    <p>The left sidebar helps you organize your notes:</p>
+                    <ul>
+                        <li><strong>+ Collection</strong> - Create a new collection (folder) to group related notes</li>
+                        <li><strong>+ Page</strong> - Create a new note page</li>
+                        <li><strong>My Notes</strong> - Your main collection with all notes</li>
+                    </ul>
+
+                    <h3>Note Types</h3>
+                    <p>Each note can have two types of content, accessible via tabs:</p>
+                    <div class="tabs-visual">
+                        <span class="tab-badge">Notepad</span>
+                        <span class="tab-badge">To-Do</span>
+                    </div>
+                    <ul>
+                        <li><strong>Notepad</strong> - Rich text notes with formatting</li>
+                        <li><strong>To-Do</strong> - Kanban-style task board</li>
+                    </ul>
+                </section>
+
+                <!-- Creating Notes -->
+                <section id="creating-notes" class="docs-section">
+                    <h2>Creating Notes</h2>
+                    <p>Creating and editing notes in Mini Note is quick and intuitive with a familiar word processor-style interface.</p>
+                    
+                    <h3>Create a New Note</h3>
+                    <div class="step-card">
+                        <span class="step-number">1</span>
+                        <h4>Click "+ Page"</h4>
+                        <p>In the sidebar, click the "+ Page" button to create a new note.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-number">2</span>
+                        <h4>Start Typing</h4>
+                        <p>Click in the editor area and start typing. Your note saves automatically!</p>
+                    </div>
+
+                    <h3>Formatting Options (Home Tab)</h3>
+                    <div class="screenshot">
+                        <img src="images/home-tab.png" alt="Home Tab Formatting Tools">
+                        <div class="screenshot-caption">✏️ Rich formatting toolbar in the Home tab</div>
+                    </div>
+
+                    <p>The Home tab provides powerful formatting tools:</p>
+                    <ul>
+                        <li><strong>Font Selection</strong> - Choose from fonts like Calibri Light, Arial, etc.</li>
+                        <li><strong>Font Size</strong> - Adjust text size (default is 15)</li>
+                        <li><strong>Bold (B)</strong> - Make text bold</li>
+                        <li><strong>Italic (I)</strong> - Italicize text</li>
+                        <li><strong>Underline (U)</strong> - Underline text</li>
+                        <li><strong>Text Color (A)</strong> - Change text color</li>
+                        <li><strong>Highlight</strong> - Highlight text with background color</li>
+                        <li><strong>Bullet List</strong> - Create bulleted lists</li>
+                        <li><strong>Numbered List</strong> - Create numbered lists</li>
+                        <li><strong>Alignment</strong> - Left, center, right alignment</li>
+                        <li><strong>Undo/Redo</strong> - Undo or redo your changes</li>
+                        <li><strong>Clear</strong> - Clear formatting</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <strong>✨ Auto-Save:</strong> Your notes are automatically saved as you type. You'll never lose your work!
+                    </div>
+                </section>
+
+                <!-- Task Management -->
+                <section id="task-management" class="docs-section">
+                    <h2>Task Management</h2>
+                    <p>Mini Note includes a powerful Kanban-style task board to help you organize and track your tasks.</p>
+                    
+                    <h3>Accessing the Task Board</h3>
+                    <div class="step-card">
+                        <span class="step-number">1</span>
+                        <h4>Open any note</h4>
+                        <p>Select or create a note from the sidebar.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-number">2</span>
+                        <h4>Click the "To-Do" tab</h4>
+                        <p>Switch from Notepad to To-Do tab to view the Kanban board.</p>
+                    </div>
+
+                    <div class="screenshot">
+                        <img src="images/todo-kanban.png" alt="Kanban Task Board">
+                        <div class="screenshot-caption">📋 Kanban-style task board with To Do, In Progress, and Completed columns</div>
+                    </div>
+
+                    <h3>Task Board Columns</h3>
+                    <p>The board has three columns to track your task progress:</p>
+                    <ul>
+                        <li><strong>To Do</strong> - Tasks waiting to be started</li>
+                        <li><strong>In Progress</strong> - Tasks you're currently working on</li>
+                        <li><strong>Completed</strong> - Finished tasks</li>
+                    </ul>
+
+                    <h3>Adding a New Task</h3>
+                    <div class="step-card">
+                        <span class="step-number">1</span>
+                        <h4>Click "+ Add Task"</h4>
+                        <p>Click the blue "+ Add Task" button above the columns.</p>
+                    </div>
+
+                    <div class="screenshot">
+                        <img src="images/add-task.png" alt="Add Task Dialog">
+                        <div class="screenshot-caption">➕ Add Task dialog with all task details</div>
+                    </div>
+
+                    <div class="step-card">
+                        <span class="step-number">2</span>
+                        <h4>Fill in Task Details</h4>
+                        <p>Enter the following information:</p>
+                    </div>
+                    <ul>
+                        <li><strong>Name *</strong> - Task title (required)</li>
+                        <li><strong>Description</strong> - Additional details about the task</li>
+                        <li><strong>Start Date</strong> - When the task begins</li>
+                        <li><strong>End Date</strong> - Task deadline</li>
+                        <li><strong>Status</strong> - Choose: To Do, In Progress, or Completed</li>
+                    </ul>
+
+                    <div class="step-card">
+                        <span class="step-number">3</span>
+                        <h4>Click "Save"</h4>
+                        <p>Click the Save button to add your task to the board.</p>
+                    </div>
+
+                    <h3>Managing Tasks</h3>
+                    <ul>
+                        <li><strong>Drag & Drop</strong> - Move tasks between columns by dragging them</li>
+                        <li><strong>Edit Task</strong> - Click on a task to edit its details</li>
+                        <li><strong>Delete Task</strong> - Remove tasks you no longer need</li>
+                    </ul>
+
+                    <div class="tip-box">
+                        <strong>💡 Pro Tip:</strong> Use the task board to break down large projects into manageable tasks and track your progress visually!
+                    </div>
+                </section>
+
+                <!-- Insert Content -->
+                <section id="insert-content" class="docs-section">
+                    <h2>Insert Content</h2>
+                    <p>The Insert tab allows you to add rich content to your notes.</p>
+                    
+                    <div class="screenshot">
+                        <img src="images/todo-kanban.png" alt="Insert Tab">
+                        <div class="screenshot-caption">📎 Insert tab with options for tables, pictures, links, symbols, and emojis</div>
+                    </div>
+
+                    <h3>Available Insert Options</h3>
+                    
+                    <h4>Insert Section</h4>
+                    <ul>
+                        <li><strong>Table</strong> - Insert a table to organize data</li>
+                        <li><strong>Picture</strong> - Add images to your notes</li>
+                        <li><strong>Link</strong> - Insert hyperlinks to websites</li>
+                    </ul>
+
+                    <h4>Symbols Section</h4>
+                    <ul>
+                        <li><strong>Symbol</strong> - Insert special characters and symbols</li>
+                        <li><strong>Emoji</strong> - Add emojis to make your notes expressive 😊</li>
+                    </ul>
+
+                    <div class="tip-box">
+                        <strong>💡 Pro Tip:</strong> Use tables to create structured layouts for meeting notes, comparison charts, or organized lists!
+                    </div>
+                </section>
+
+                <!-- Themes & View -->
+                <section id="themes" class="docs-section">
+                    <h2>Themes & View</h2>
+                    <p>Customize Mini Note's appearance to match your preferences and reduce eye strain.</p>
+                    
+                    <div class="screenshot">
+                        <img src="images/dark-theme.png" alt="Dark Theme View">
+                        <div class="screenshot-caption">🌙 Dark theme for comfortable viewing in low-light environments</div>
+                    </div>
+
+                    <h3>View Tab Options</h3>
+                    
+                    <h4>Layout</h4>
+                    <ul>
+                        <li><strong>Toggle Sidebar</strong> - Show or hide the sidebar for more writing space</li>
+                    </ul>
+
+                    <h4>Theme Options</h4>
+                    <p>Choose from three theme options:</p>
+                    <div class="tabs-visual">
+                        <span class="tab-badge">Light</span>
+                        <span class="tab-badge active">Dark</span>
+                        <span class="tab-badge">System</span>
+                    </div>
+                    <ul>
+                        <li><strong>Light</strong> - Bright theme, perfect for daytime use</li>
+                        <li><strong>Dark</strong> - Dark theme, easier on eyes in low light</li>
+                        <li><strong>System</strong> - Automatically matches your system preferences</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <strong>👁️ Eye Care:</strong> Use Dark mode when working at night to reduce eye strain and improve focus!
+                    </div>
+                </section>
+
+                <!-- Backup & Export -->
+                <section id="backup" class="docs-section">
+                    <h2>Backup & Export</h2>
+                    <p>Keep your notes safe by exporting backups and importing them when needed.</p>
+                    
+                    <div class="screenshot">
+                        <img src="images/backup-tab.png" alt="Backup Tab">
+                        <div class="screenshot-caption">💾 Backup tab with Export and Import options</div>
+                    </div>
+
+                    <h3>Backup Options</h3>
+                    
+                    <h4>Export</h4>
+                    <p>Save all your notes to a backup file:</p>
+                    <div class="step-card">
+                        <span class="step-number">1</span>
+                        <h4>Click "Export"</h4>
+                        <p>Click the Export button in the Backup tab.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-number">2</span>
+                        <h4>Save the File</h4>
+                        <p>Choose where to save your backup file on your computer.</p>
+                    </div>
+
+                    <h4>Import</h4>
+                    <p>Restore notes from a backup file:</p>
+                    <div class="step-card">
+                        <span class="step-number">1</span>
+                        <h4>Click "Import"</h4>
+                        <p>Click the Import button in the Backup tab.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-number">2</span>
+                        <h4>Select Your Backup</h4>
+                        <p>Choose the backup file you previously exported.</p>
+                    </div>
+
+                    <div class="tip-box">
+                        <strong>💡 Pro Tip:</strong> Create regular backups of your notes, especially before making major changes. Store backups in cloud storage like Google Drive for extra safety!
+                    </div>
+                </section>
+
+                <!-- Keyboard Shortcuts -->
+                <section id="shortcuts" class="docs-section">
+                    <h2>Keyboard Shortcuts</h2>
+                    <p>Speed up your workflow with these handy shortcuts.</p>
+                    
+                    <div class="shortcut-grid">
+                        <div class="shortcut-card">
+                            <span class="shortcut-key">Ctrl+B</span>
+                            <span class="shortcut-desc">Bold Text</span>
+                        </div>
+                        <div class="shortcut-card">
+                            <span class="shortcut-key">Ctrl+I</span>
+                            <span class="shortcut-desc">Italic Text</span>
+                        </div>
+                        <div class="shortcut-card">
+                            <span class="shortcut-key">Ctrl+U</span>
+                            <span class="shortcut-desc">Underline Text</span>
+                        </div>
+                        <div class="shortcut-card">
+                            <span class="shortcut-key">Ctrl+Z</span>
+                            <span class="shortcut-desc">Undo</span>
+                        </div>
+                        <div class="shortcut-card">
+                            <span class="shortcut-key">Ctrl+Y</span>
+                            <span class="shortcut-desc">Redo</span>
+                        </div>
+                        <div class="shortcut-card">
+                            <span class="shortcut-key">Ctrl+A</span>
+                            <span class="shortcut-desc">Select All</span>
+                        </div>
+                        <div class="shortcut-card">
+                            <span class="shortcut-key">Ctrl+C</span>
+                            <span class="shortcut-desc">Copy</span>
+                        </div>
+                        <div class="shortcut-card">
+                            <span class="shortcut-key">Ctrl+V</span>
+                            <span class="shortcut-desc">Paste</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Troubleshooting -->
+                <section id="troubleshooting" class="docs-section">
+                    <h2>Troubleshooting</h2>
+                    <p>Having issues? Here are solutions to common problems.</p>
+                    
+                    <h3>Notes not saving</h3>
+                    <p>If your notes aren't saving:</p>
+                    <ul>
+                        <li>Make sure you have enough storage space in your browser</li>
+                        <li>Try clearing your browser cache and restarting Chrome</li>
+                        <li>If the issue persists, export your notes, reinstall the extension, then import them back</li>
+                    </ul>
+
+                    <h3>Extension not opening</h3>
+                    <p>If Mini Note won't open:</p>
+                    <ul>
+                        <li>Check that the extension is enabled in Chrome (chrome://extensions)</li>
+                        <li>Try removing and re-adding the extension</li>
+                        <li>Restart your browser</li>
+                    </ul>
+
+                    <h3>Tasks not moving between columns</h3>
+                    <p>If drag and drop isn't working:</p>
+                    <ul>
+                        <li>Try refreshing the page</li>
+                        <li>Make sure you're clicking and dragging from the task card itself</li>
+                    </ul>
+
+                    <h3>Need more help?</h3>
+                    <p>If you're still experiencing issues, please contact us at <strong>support@mininote.app</strong> and we'll be happy to assist!</p>
+                </section>
+            </div>
         </main>
     </div>
 
@@ -613,7 +888,7 @@
     <script>
         // Highlight active section in sidebar
         const sections = document.querySelectorAll('.docs-section');
-        const navLinks = document.querySelectorAll('.docs-nav a');
+        const navLinks = document.querySelectorAll('.sidebar-nav a');
 
         window.addEventListener('scroll', () => {
             let current = '';
