@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tejaadusumilli21.github.io/Mini-Note/sitemap.xml
